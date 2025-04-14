@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).send('Only POST allowed');
+    return res.status(405).send(' Invoke-RestMethod -Uri "https://idkk-lemon.vercel.app/api/app" -Method Post -Body (@{text="answer this"} | ConvertTo-json) -ContentType "application/json"');
   }
 
   const { text } = req.body;
