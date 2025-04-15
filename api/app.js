@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     const data = await response.json();
     const result = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'No response';
-    res.status(405).send(result.trim());
+    res.send(result.trim());
   } catch (err) {
     res.status(500).send(err.message);
   }
