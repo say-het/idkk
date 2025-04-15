@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=AIzaSyBpG8tUWy18F3x0aOVVotWpTV1xfKUmWP8`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBpG8tUWy18F3x0aOVVotWpTV1xfKUmWP8`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     const data = await response.json();
     const result = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'No response';
-    res.status(405).send(result.trim());
+    res.send(result.trim());
   } catch (err) {
     res.status(500).send(err.message);
   }
